@@ -90,10 +90,16 @@ endfunction()
 
 function(find_platform_libraries)
 
+    # Add NO_SYSTEM_ENVIRONMENT_PATH to stop find_file from returning
+    # sdk/arduino-x.x.x/libraries instead of 
+    # sdk/arduino-x.x.x/hardware/arduino/avr/libraries when
+    # sdk/arduino-x.x.x is part of the system PATH variable in Linux
+
     find_file(ARDUINO_CMAKE_PLATFORM_LIBRARIES_PATH
             NAMES libraries
             PATHS ${ARDUINO_CMAKE_PLATFORM_PATH}
             DOC "Path to platform directory containing the Arduino libraries"
+            NO_SYSTEM_ENVIRONMENT_PATH
             NO_CMAKE_FIND_ROOT_PATH)
 
     file(GLOB sub-dir "${ARDUINO_CMAKE_PLATFORM_LIBRARIES_PATH}/*")
