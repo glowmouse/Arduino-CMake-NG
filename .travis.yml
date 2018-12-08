@@ -50,6 +50,7 @@ install:
 - rm -rf build/*
 - cd build/
 script:
+- PATH="$ARDUINO_SDK_PATH:$PATH"
 - cmake -D CMAKE_TOOLCHAIN_FILE="../cmake/Arduino-Toolchain.cmake" ../examples
 - make
 after_failure:
