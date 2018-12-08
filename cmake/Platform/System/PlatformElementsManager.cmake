@@ -92,7 +92,7 @@ function(find_platform_libraries)
 
     find_file(ARDUINO_CMAKE_PLATFORM_LIBRARIES_PATH
             NAMES libraries
-            PATHS ${ARDUINO_CMAKE_PLATFORM_PATH}
+            HINTS ${ARDUINO_CMAKE_PLATFORM_PATH}
             DOC "Path to platform directory containing the Arduino libraries"
             NO_CMAKE_FIND_ROOT_PATH)
 
